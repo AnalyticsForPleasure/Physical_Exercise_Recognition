@@ -26,17 +26,29 @@ if __name__ == '__main__':
     df_xyz =pd.read_csv('/home/shay_diy/PycharmProjects/Physical_Exercise_Recognition/Data/xyz_distances.csv')
     df_angles = pd.read_csv('/home/shay_diy/PycharmProjects/Physical_Exercise_Recognition/Data/angles.csv')
 
-    print(f'columns are: {df_labels.columns}')
+    print(f'columns are: {df_angles.columns}')
     print('*')
 
-
+    # Going over the 'label' dataset :
     # Finding the inber of vid_id in each class activity :
-
     list_of_activities = pd.unique(df_labels['class'])
 
     for activity in list_of_activities:
         res =df_labels.loc[df_labels['class'] == activity , :]
         number_of_row_each_activity = res.shape[0]
         print('*')
+
+    # Going over the 'angles' dataset :
+    column_headers = list(df_angles.columns.values)
+    list_of_videos = pd.unique(df_angles['vid_id'])
+    number_of_videos = df_angles['vid_id'].value_counts()
+    print('*')
+
+    # Going over the 'df_landmarks' dataset :
+    column_headers = list(df_landmarks.columns.values)
+    print('*')
+
+
+
 
 

@@ -48,7 +48,19 @@ if __name__ == '__main__':
     column_headers = list(df_landmarks.columns.values)
     print('*')
 
+    # Going over the 'df_landmarks' dataset :
+
+    column_headers = list(df_xyz.columns.values)
+    print('*')
+
+    # Going over the 'calculated_3d_distances' dataset :
+    column_headers = list(df_3d.columns.values)
+    print('*')
 
 
+    # merging between dataframes
+    first_merge_data= pd.merge(df_labels, df_angles, on='vid_id')
+    second_merge_data = pd.merge(first_merge_data, df_landmarks, on='vid_id')
+    #third_merge_data = pd.merge(second_merge_data, df_xyz, on='vid_id')
 
-
+    print('*')
